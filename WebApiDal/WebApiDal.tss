@@ -2,7 +2,70 @@
 <ArrayOfArrayOfArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ArrayOfArrayOfString>
     <ArrayOfString>
+      <string>C:\!dev\git\ASP.NET-WebApiDal\WebApiDal\WebApi.Server\App_Start\IdentityConfig.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>C:\!dev\git\ASP.NET-WebApiDal\WebApiDal\Web\App_Start\IdentityConfig.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>C:\!dev\git\ASP.NET-WebApiDal\WebApiDal\WebApi.Server\Controllers\ValuesController.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>C:\!dev\git\ASP.NET-WebApiDal\WebApiDal\WebApi.Server\App_Start\NinjectWebCommon.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>C:\!dev\git\ASP.NET-WebApiDal\WebApiDal\Web\App_Start\NinjectWebCommon.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
       <string>NuGet - Solution</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>C:\!dev\git\ASP.NET-WebApiDal\WebApiDal\Web\Controllers\Api\ValuesController.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>C:\!dev\git\ASP.NET-WebApiDal\WebApiDal\Web\Helpers\UserNameFactory.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>C:\!dev\git\ASP.NET-WebApiDal\WebApiDal\DAL\UserName.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>C:\!dev\git\ASP.NET-WebApiDal\WebApiDal\WebApi.Server\Helpers\UserNameFactory.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>C:\!dev\git\ASP.NET-WebApiDal\WebApiDal\Web\App_Start\WebApiConfig.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>C:\!dev\git\ASP.NET-WebApiDal\WebApiDal\WebApi.Server\App_Start\WebApiConfig.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>C:\!dev\git\ASP.NET-WebApiDal\WebApiDal\Web\Controllers\Api\AccountController.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>C:\!dev\git\ASP.NET-WebApiDal\WebApiDal\WebApi.Server\Controllers\AccountController.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>C:\!dev\git\ASP.NET-WebApiDal\WebApiDal\Web\ViewModels\ApiAccountViewModels.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>C:\!dev\git\ASP.NET-WebApiDal\WebApiDal\WebApi.Server\Models\ApiAccountViewModels.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>C:\!dev\git\ASP.NET-WebApiDal\WebApiDal\Web\Global.asax.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>C:\!dev\git\ASP.NET-WebApiDal\WebApiDal\Web\Startup.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>C:\!dev\git\ASP.NET-WebApiDal\WebApiDal\Web\App_Start\Startup.Auth.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>C:\!dev\git\ASP.NET-WebApiDal\WebApiDal\WebApi.Server\App_Start\Startup.Auth.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>C:\!dev\git\ASP.NET-WebApiDal\WebApiDal\WebApi.Server\Providers\ApplicationOAuthProvider.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>C:\!dev\git\ASP.NET-WebApiDal\WebApiDal\Web\Providers\ApplicationOAuthProvider.cs</string>
     </ArrayOfString>
   </ArrayOfArrayOfString>
 </ArrayOfArrayOfArrayOfString>
