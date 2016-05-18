@@ -1,0 +1,156 @@
+﻿
+@{
+    ViewBag.Title = "ApiDemo";
+}
+
+
+<div class="row">
+    <div class="col-sm-4">
+        <form id="apiGetValues" method="get">
+            <h3>Invoke API</h3>
+            <div class="form-group">
+                <label>User</label>
+                <input class="form-control" type="text" readonly id="user" />
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-default">Call API</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="col-sm-4">
+        <form id="apiRegister" method="post">
+            <h3>Register</h3>
+            <div class="form-group">
+                <label>Email</label>
+                <input class="form-control" type="text" id="registerEmail" />
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input class="form-control" type="password" id="registerPassword" />
+            </div>
+            <div class="form-group">
+                <label>Confirm Password</label>
+                <input class="form-control" type="password" id="registerPassword2" />
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-default">Register</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="col-sm-4">
+        <h3>Log In</h3>
+        <form id="apiLogin" method="post">
+            <div class="form-group">
+                <label>Email</label>
+                <input class="form-control" type="text" id="email" />
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input class="form-control" type="password" id="password" />
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-default">Log In</button>
+                <button id="apiLogout" class="btn btn-default">Log Out</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="form-group">
+            <label>Result: </label>
+            <label id="result">---</label>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script type="text/javascript">
+
+        function showError(jqXHR) {
+            $("#result").html(jqXHR.status + ': ' + jqXHR.statusText);
+        }
+
+        $("#apiGetValues").submit(function (event) {
+            var token = sessionStorage.getItem('accessToken');
+            var headers = {};
+
+            $("#result").html("API Get...");
+
+            if (token) {
+                headers.Authorization = 'Bearer ' + token;
+            }
+
+            $.ajax({
+                type: 'GET',
+                url: '/api/values',
+                headers: headers
+            }).done(function (data) {
+                $("#result").html(data);
+            }).fail(showError);
+
+            event.preventDefault();
+        });
+
+
+        $("#apiLogin").submit(function (event) {
+            $("#result").html("Login...");
+
+            var loginData = {
+                grant_type: 'password',
+                username: $("#email").val(),
+                password: $("#password").val()
+            };
+
+            $.ajax({
+                type: 'POST',
+                url: '/Token',
+                data: loginData
+            }).done(function (data) {
+                $("#user").val(data.userName);
+                $("#result").html("Login done!");
+
+                // Cache the access token in session storage.
+                sessionStorage.setItem('accessToken', data.access_token);
+            }).fail(showError);
+
+            event.preventDefault();
+        });
+
+        $("#apiRegister").submit(function (event) {
+            $("#result").html("Register...");
+
+            var registerData = {
+                Email: $("#registerEmail").val(),
+                Password: $("#registerPassword").val(),
+                ConfirmPassword: $("#registerPassword2").val()
+            };
+
+            $.ajax({
+                type: 'POST',
+                url: '/api/Account/Register',
+                contentType: 'application/json; charset=utf-8',
+                processData: false,
+                data: JSON.stringify(registerData)
+            }).done(function (data) {
+                $("#result").html("Register done!");
+            }).fail(showError);
+
+            event.preventDefault();
+        });
+
+
+
+        $("#apiLogout").click(function (event) {
+            $("#user").val("");
+            $("#result").html("Logout!");
+
+            sessionStorage.removeItem('accessToken');
+            event.preventDefault();
+        });
+    </script>
+}

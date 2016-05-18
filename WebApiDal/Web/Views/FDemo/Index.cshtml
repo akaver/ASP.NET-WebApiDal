@@ -1,0 +1,43 @@
+﻿@using PagedList.Mvc
+@model PagedList.IPagedList<FileInfo>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Upload new files", "UpLoadFiles")
+</p>
+
+@Html.PagedListPager(Model, pageNumber => Url.Action("Index", new { pageNumber, sortOrder = ViewBag.SortOrder }))
+@{
+    string faSort = "";
+}
+<table class="table">
+    <tr>
+        <th>
+            <a href="@Url.Action("Index", new {sortOrder = ViewBag.SortOrder == "FileName" ? "_FileName" : "FileName"})">
+                @Html.DisplayName("FileName")
+                @{faSort = "fa-sort" + (ViewBag.SortOrder == "FileName" ? "-down" : ViewBag.SortOrder == "_FileName" ? "-up" : ""); }
+                <i class="fa @faSort"></i>
+            </a>
+        </th>
+        <th>
+            <a href="@Url.Action("Index", new {sortOrder = ViewBag.SortOrder == "DateTime" ? "_DateTime" : "DateTime"})">
+                @Html.DisplayName("DateTime")
+                @{faSort = "fa-sort" + (ViewBag.SortOrder == "DateTime" ? "-down" : ViewBag.SortOrder == "_DateTime" ? "-up" : ""); }
+                <i class="fa @faSort"></i>
+            </a>
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td><a href="@Href(item.FullName.Replace(HttpContext.Current.Server.MapPath("~/"), "~/").Replace(@"\", "/"))" target="_blank">@item.Name</a></td>
+            <td>@item.CreationTime</td>
+            <td>@Html.ActionLink("Delete", "DeleteFile", new { fileName = item.Name })</td>
+        </tr>
+    }
+</table>

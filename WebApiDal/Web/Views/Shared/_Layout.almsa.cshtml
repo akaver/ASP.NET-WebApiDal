@@ -1,0 +1,149 @@
+﻿@using System.Threading
+@using Microsoft.AspNet.Identity
+@{
+    var titleTag = (string.IsNullOrWhiteSpace(ViewBag.Title) ? "" : ViewBag.Title + " - ") + Resources.Common.ApplicationName;
+
+    // set up global js variable, to hold culture code
+    // it is later used for globalize, cldr and moment
+    var currentCultureCode = "root";
+    switch (Thread.CurrentThread.CurrentCulture.ToString())
+    {
+        case "et-EE":
+            currentCultureCode = "et";
+            break;
+        case "en-US":
+            currentCultureCode = "en";
+            break;
+        default:
+            currentCultureCode = Thread.CurrentThread.CurrentCulture.ToString();
+            break;
+    }
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@titleTag</title>
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/adminltecss")
+    @Scripts.Render("~/bundles/modernizr")
+    <script type="text/javascript">
+        var currentCultureCode = '@currentCultureCode';
+    </script>
+    @RenderSection("headerscripts", required: false)
+</head>
+<body class="layout-boxed hold-transition skin-blue sidebar-mini">
+
+    <div class="wrapper">
+        <header class="main-header">
+            <!-- Logo -->
+            <a href="index2.html" class="logo">
+                <!-- mini logo for sidebar mini 50x50 pixels -->
+                <span class="logo-mini">@Resources.Common.ApplicationName</span>
+                <!-- logo for regular state and mobile devices -->
+                <span class="logo-lg">@Resources.Common.ApplicationName</span>
+            </a>
+            <!-- Header Navbar: style can be found in header.less -->
+            <nav class="navbar navbar-static-top" role="navigation">
+                <!-- Sidebar toggle button-->
+                <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                    <span class="sr-only">Toggle navigation</span>
+                </a>
+                <div class="navbar-custom-menu">
+                        @if (Request.IsAuthenticated)
+                        {
+                            using (Html.BeginForm("LogOff", "Account", new { area = "" }, FormMethod.Post, new { id = "logoutForm"}))
+                            {
+                                @Html.AntiForgeryToken()
+                                <ul class="nav navbar-nav">
+                                    <!-- User Account: style can be found in dropdown.less -->
+                                    <li class="dropdown user user-menu" style="min-width: 300px">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                            <span class="hidden-xs">@User.Identity.GetUserName()</span>
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li class="user-header">
+                                                <p>
+                                                    @User.Identity.GetUserName()
+                                                </p>
+                                            </li>
+                                            <!-- Menu Footer-->
+                                            <li class="user-footer">
+                                                <div class="pull-left">
+                                                    @Html.ActionLink(@Resources.Common.ManageAccount, "Index", new { area = "", controller = "Manage", @class = "btn btn-default btn-flat" })
+                                                </div>
+                                                <div class="pull-right">
+                                                    <a href="javascript:document.getElementById('logoutForm').submit()" class="btn btn-default btn-flat">@Resources.Common.LogOff</a>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            }
+                        }
+                </div>
+            </nav>
+        </header>
+        <!-- Left side column. contains the logo and sidebar -->
+        <aside class="main-sidebar">
+            <!-- sidebar: style can be found in sidebar.less -->
+            <section class="sidebar">
+
+                <!-- sidebar menu: : style can be found in sidebar.less -->
+                <ul class="sidebar-menu">
+                    <li class="header">MAIN NAVIGATION</li>
+
+                    <li><a href="@Url.Action("Index","HelperDemo",new { area = "" })"><i class="fa fa-book"></i> <span>HelperDemo</span></a></li>
+                    <li><a href="@Url.Action("Index","Persons",new { area = "" })"><i class="fa fa-book"></i> <span>Persons</span></a></li>
+                    <li><a href="@Url.Action("Index","Contacts",new { area = "" })"><i class="fa fa-book"></i> <span>Contacts</span></a></li>
+                </ul>
+            </section>
+            <!-- /.sidebar -->
+        </aside>
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <section class="content-header">
+                <h1>
+                    Dashboard
+                    <small>Control panel</small>
+                </h1>
+                <ol class="breadcrumb">
+                    <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+                    <li class="active">Dashboard</li>
+                </ol>
+            </section>
+            <!-- Main content -->
+            <section class="content">
+                @RenderBody()
+            </section><!-- /.content -->
+        </div><!-- /.content-wrapper -->
+        <footer class="main-footer">
+            <div class="pull-right hidden-xs">
+                <b>Version</b> 2.3.0
+            </div>
+            <strong>Copyright &copy; 2014-2015 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights reserved.
+        </footer>
+
+    </div><!-- ./wrapper -->
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/cldr")
+    @Scripts.Render("~/bundles/globalize")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/moment")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/Scripts/tinymce/tinymce.min.js")
+
+
+
+    @Scripts.Render("~/bundles/adminltejs")
+
+
+    @Scripts.Render("~/bundles/app")
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

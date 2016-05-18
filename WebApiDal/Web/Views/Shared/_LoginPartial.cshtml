@@ -1,0 +1,51 @@
+﻿@using System.Threading
+@using Microsoft.AspNet.Identity
+@using Web.Helpers
+@{
+    var culture = CultureHelper.GetCurrentUICulture().ToLower();
+
+    var nameValueCollection = HttpUtility.ParseQueryString(Request?.Url?.Query ?? "");
+    nameValueCollection.Remove("culture");
+    string returnUrl = Request?.Url?.AbsolutePath + "?" + nameValueCollection;
+
+    //var returnUrl = Request.Url?.PathAndQuery ?? "";
+}
+
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account", new {area = ""}, FormMethod.Post, new {id = "logoutForm", @class = "navbar-right"}))
+    {
+        @Html.AntiForgeryToken()
+
+        <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+                <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+                    @User.Identity.GetUserName() <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>@Html.ActionLink(@Resources.Common.ManageAccount, "Index", new {area = "", controller = "Manage"})</li>
+                    <li>
+                        <a href="javascript:document.getElementById('logoutForm').submit()">@Resources.Common.LogOff</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="@Html.Raw(culture == "et" ? "list-group-item-success" : "")">
+                @Html.ActionLink("Est", "SetLanguage", new {area = "", controller = "Language", culture = "et", returnUrl}, htmlAttributes: new {id = "langLinkEst"})
+            </li>
+            <li class="@Html.Raw(culture == "en" ? "list-group-item-success" : "")">
+                @Html.ActionLink("Eng", "SetLanguage", new {area = "", controller = "Language", culture = "en", returnUrl}, htmlAttributes: new {id = "langLinkEng"})
+            </li>
+        </ul>
+    }
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li class="@Html.Raw(culture == "et" ? "list-group-item-success" : "")">
+            @Html.ActionLink("Est", "SetLanguage", new {area = "", controller = "Language", culture = "et", returnUrl}, htmlAttributes: new {id = "langLinkEst"})
+        </li>
+        <li class="@Html.Raw(culture == "en" ? "list-group-item-success" : "")">
+            @Html.ActionLink("Eng", "SetLanguage", new {area = "", controller = "Language", culture = "en", returnUrl}, htmlAttributes: new {id = "langLinkEng"})
+        </li>
+    </ul>
+}

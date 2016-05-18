@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Domain.MultiLangString>
+
+@{
+    ViewBag.Title = "MultiLangString";
+}
+
+<h2>MultiLangString - Index</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MultiLangStringId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Owner)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Value)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @item.MultiLangStringId
+            </td>
+            <td>
+                @item.Owner
+            </td>
+            <td>
+                @Html.Raw(item.Value)
+            </td>
+            <td class="text-nowrap">
+                @Html.ActionLink("Edit", "Edit", new {id = item.MultiLangStringId}) |
+                @Html.ActionLink("Details", "Details", new {id = item.MultiLangStringId}) @*|
+            @Html.ActionLink("Delete", "Delete", new { id=item.MultiLangStringId })*@
+            </td>
+        </tr>
+    }
+
+</table>

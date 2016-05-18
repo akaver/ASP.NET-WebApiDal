@@ -1,0 +1,9 @@
+﻿@model Web.ViewModels.HomeIndexViewModel
+@{
+    ViewBag.Title = Resources.Common.ApplicationName;
+}
+
+<div class="jumbotron">
+    @Html.Raw(Model.Article.ArticleHeadline)
+    @Html.Raw(Model.Article.ArticleBody)
+</div>

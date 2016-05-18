@@ -1,0 +1,42 @@
+﻿@model Domain.Article
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Article</h4>
+    <hr/>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ArticleName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ArticleName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ArticleHeadline)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ArticleHeadline)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ArticleBody)
+        </dt>
+
+        <dd>
+            @Html.Raw(Model.ArticleBody)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new {id = Model.ArticleId}) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,41 @@
+﻿@model List<Domain.Identity.UserLoginInt>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().User.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().LoginProvider)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LoginProvider)
+            </td>
+
+            <td>
+                @Html.ActionLink("Edit", "Edit", new {loginProvider = item.LoginProvider, providerKey = item.ProviderKey, userId = item.UserId}) |
+                @Html.ActionLink("Details", "Details", new {loginProvider = item.LoginProvider, providerKey = item.ProviderKey, userId = item.UserId}) |
+                @Html.ActionLink("Delete", "Delete", new {loginProvider = item.LoginProvider, providerKey = item.ProviderKey, userId = item.UserId})
+            </td>
+        </tr>
+    }
+
+</table>

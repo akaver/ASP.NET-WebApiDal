@@ -1,0 +1,65 @@
+﻿@model Web.Areas.Admin.ViewModels.ArticleIndexViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create") | @Html.ActionLink("Toggle html encoding", "Index", new {viewHtml = !Model.ViewHtml})
+</p>
+
+<table class="table">
+
+    @foreach (var item in Model.Articles)
+    {
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Articles.FirstOrDefault().ArticleName)
+            </th>
+            <td>
+                @Html.DisplayFor(modelItem => item.ArticleName)
+            </td>
+        </tr>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Articles.FirstOrDefault().ArticleHeadline)
+            </th>
+            <td>
+                @if (Model.ViewHtml)
+                {
+                    @Html.Raw(item.ArticleHeadline)
+                }
+                else
+                {
+                    @item.ArticleHeadline
+                }
+            </td>
+        </tr>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Articles.FirstOrDefault().ArticleBody)
+            </th>
+            <td>
+                @if (Model.ViewHtml)
+                {
+                    @Html.Raw(item.ArticleBody)
+                }
+                else
+                {
+                    @item.ArticleBody
+                }
+            </td>
+        </tr>
+        <tr>
+            <th></th>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new {id = item.ArticleId}) |
+                @Html.ActionLink("Details", "Details", new {id = item.ArticleId}) |
+                @Html.ActionLink("Delete", "Delete", new {id = item.ArticleId})
+            </td>
+        </tr>
+    }
+
+</table>

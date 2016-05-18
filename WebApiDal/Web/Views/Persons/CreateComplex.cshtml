@@ -1,0 +1,57 @@
+﻿@model Web.ViewModels.PersonCreateComplexViewModel
+
+@{
+    ViewBag.Title = "CreateComplex";
+}
+
+<h2>CreateComplex</h2>
+<div class="row">
+    <!-- left column -->
+    <div class="col-md-6">
+
+
+        <div class="box box-primary">
+            <div class="box-header with-border">
+                <h3 class="box-title">Quick Example</h3>
+            </div>
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <div class="box-body">
+
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Person.Firstname, htmlAttributes: new { @class = "" })
+                        @Html.EditorFor(model => model.Person.Firstname, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Person.Firstname, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Person.Lastname, htmlAttributes: new { @class = "" })
+                        @Html.EditorFor(model => model.Person.Lastname, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Person.Lastname, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Contact.ContactTypeId, htmlAttributes: new { @class = "" })
+                        @Html.DropDownListFor(model => model.Contact.ContactTypeId, Model.ContactTypeSelectList, Resources.Common.SelectOptionLabel, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Contact.ContactTypeId, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Contact.ContactValue, htmlAttributes: new { @class = "" })
+                        @Html.EditorFor(model => model.Contact.ContactValue, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Contact.ContactValue, "", new { @class = "text-danger" })
+                    </div>
+
+
+
+
+                </div>
+                <div class="box-footer">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            }
+        </div>
+    </div>
+</div>

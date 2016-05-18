@@ -1,0 +1,125 @@
+﻿@using HtmlHelpers
+@using PagedList.Mvc
+@model Web.ViewModels.PersonIndexViewModel
+
+@{
+    ViewBag.Title = "Index";
+
+    //Move them to some html helper class?
+    // https://msdn.microsoft.com/en-us/library/bb549151(v=vs.110).aspx
+    // 2 parameter types and result type
+    Func<string, string, string> getSortProperty = (propertyName, currentSortProperty) => currentSortProperty == propertyName ? "_" + propertyName : propertyName;
+
+    Func<string, string, string> getSortIcon = (propertyName, currentSortProperty) => currentSortProperty == propertyName ? "fa-sort-up" : currentSortProperty == "_" + propertyName ? "fa-sort-down" : "fa-sort";
+}
+
+<h2>Index</h2>
+
+<div class="row">
+    <div class="col-md-12">
+        <p>
+            @Html.ActionLink("Create New", "Create") | @Html.ActionLink("Create Complex New", "CreateComplex") | @Html.ActionLink("Create Complex2 New", "CreateComplex2")
+        </p>
+        @using (Html.BeginForm("Index", "Persons", FormMethod.Get, new { id = "dateTimeForm" }))
+        {
+            @Html.HiddenFor(model => model.SortProperty)
+            <div class="form-horizontal">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Filter, new { @class = "control-label col-md-1" })
+                    <div class="col-md-3">
+                        @Html.EditorFor(model => model.Filter, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                    <div class="col-md-2">
+                        <input type="submit" value="Filter" class="btn btn-default" />
+                    </div>
+                </div>
+                @*<div class="form-group">
+                    @Html.EditorFor(model => model.FilterByDTBoolean, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.DateTimeEditorFor(model => model.FilterFromDT, new { @class = "form-control" })
+                    @Html.DateTimeEditorFor(model => model.FilterToDT, new { @class = "form-control" })
+                </div>*@
+            </div>
+        }
+        @Html.PagedListPager(Model.Persons, page => Url.Action("Index", new { PageNumber = page, filter = Model.Filter }))
+        <p>
+            Total: @Model.Persons.TotalItemCount
+        </p>
+    </div>
+</div>
+
+<table class="table">
+    <tr>
+        <th>
+            <a href="@Url.Action("Index", new {SortProperty = getSortProperty("firstname", Model.SortProperty),  Model.Filter})">
+                @Html.DisplayNameFor(model => model.Persons.FirstOrDefault().Firstname)
+                <i class="fa @getSortIcon("firstname", Model.SortProperty)"></i>
+            </a>
+        </th>
+        <th>
+            <a href="@Url.Action("Index", new {SortProperty = getSortProperty("lastname", Model.SortProperty),  Model.Filter})">
+                @Html.DisplayNameFor(model => model.Persons.FirstOrDefault().Lastname)
+                <i class="fa @getSortIcon("lastname", Model.SortProperty)"></i>
+            </a>
+        </th>
+        <th>@Html.DisplayNameFor(model => model.Persons.FirstOrDefault().DateTime)</th>
+        <th>@Html.DisplayNameFor(model => model.Persons.FirstOrDefault().Date)</th>
+        <th>@Html.DisplayNameFor(model => model.Persons.FirstOrDefault().Time)</th>
+        <th>@Html.DisplayNameFor(model => model.Persons.FirstOrDefault().Contacts)</th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.Persons)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Firstname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Lastname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Time)
+            </td>
+            <td>
+                @item.Contacts.Count
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.PersonId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.PersonId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.PersonId })
+            </td>
+        </tr>
+    }
+
+</table>
+@Html.PagedListPager(Model.Persons, page => Url.Action("Index", new { PageNumber = page }))
+
+@section scripts {
+    <script type="text/javascript">
+        $("#dateTimeForm").submit(function(event) {
+            $("input[data-val-datetime]").each(function(index, element) {
+                var currentValue = $(this).val();
+                
+                for (var i = 0; i < $.validator.methods.datetimeGlobalizeOptions.dateParseFormat.length; i++) {
+                    var dateObject = Globalize.parseDate(currentValue, $.validator.methods.datetimeGlobalizeOptions.dateParseFormat[i]);
+                    if (dateObject instanceof Date) {
+                        $(this).removeAttr("data-val");
+                        console.log(dateObject.toISOString());
+                        $(this).val(dateObject.toISOString());
+                        break;
+                    }
+                }
+            });
+
+            //submit form here, avoid futher validation
+            this.submit();
+            return false;
+        });
+    </script>
+}

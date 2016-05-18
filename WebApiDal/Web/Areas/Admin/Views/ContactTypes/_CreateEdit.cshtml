@@ -1,0 +1,9 @@
+﻿@model Web.Areas.Admin.ViewModels.ContactTypeCreateEditViewModel
+
+<div class="form-group">
+    @Html.LabelFor(model => model.ContactTypeName, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+        @Html.EditorFor(model => model.ContactTypeName, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.ContactTypeName, "", new { @class = "text-danger" })
+    </div>
+</div>

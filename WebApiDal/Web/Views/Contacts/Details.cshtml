@@ -1,0 +1,42 @@
+﻿@model Domain.Contact
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Contact</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ContactType.ContactTypeId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContactType.ContactTypeId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Person.Firstname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Person.Firstname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContactValue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContactValue)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ContactId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

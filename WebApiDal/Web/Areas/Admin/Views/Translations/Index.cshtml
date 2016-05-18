@@ -1,0 +1,53 @@
+﻿@using System.Runtime.InteropServices.ComTypes
+@model Web.Areas.Admin.ViewModels.TranslationsIndexViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Toggle html encoding", "Index", new {viewHtml = !Model.ViewHtml})
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Translations.FirstOrDefault().MultiLangString.Owner)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Translations.FirstOrDefault().Value)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Translations.FirstOrDefault().Culture)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.Translations)
+    {
+        <tr>
+            <td class="text-nowrap">
+                @Html.DisplayFor(modelItem => item.MultiLangString.MultiLangStringId) - @Html.DisplayFor(modelItem => item.MultiLangString.Owner)
+            </td>
+            <td>
+                @if (Model.ViewHtml)
+                {
+                    @Html.Raw(item.Value)
+                }
+                else
+                {
+                    @item.Value
+                }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Culture)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new {id = item.TranslationId}) |
+                @Html.ActionLink("Delete", "Delete", new {id = item.TranslationId})
+            </td>
+        </tr>
+    }
+
+</table>

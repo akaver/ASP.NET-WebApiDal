@@ -1,0 +1,25 @@
+﻿@model Web.ViewModels.ContactCreateEditViewModel
+
+<div class="form-group">
+    @Html.LabelFor(model => model.Contact.PersonId, "PersonId", htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+        @Html.DropDownListFor(model => model.Contact.PersonId, Model.PersonSelectList, "-- Select --", new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Contact.PersonId, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(model => model.Contact.ContactTypeId, "ContactTypeId", htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+        @Html.DropDownListFor(model => model.Contact.ContactTypeId, Model.ContactTypeSelectList, "-- Select --", new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Contact.ContactTypeId, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(model => model.Contact.ContactValue, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+        @Html.EditorFor(model => model.Contact.ContactValue, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.Contact.ContactValue, "", new { @class = "text-danger" })
+    </div>
+</div>

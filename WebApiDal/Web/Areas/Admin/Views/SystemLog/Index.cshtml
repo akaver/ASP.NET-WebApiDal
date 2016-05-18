@@ -1,0 +1,27 @@
+﻿@using Web.Areas.Admin.Controllers
+@model Web.Areas.Admin.ViewModels.SystemLogIndexViewModel
+@{
+    ViewBag.Title = "System log";
+}
+
+<h2>Index</h2>
+
+@Html.ActionLink("Delete ALL log files",nameof(SystemLogController.DeleteAllLogFiles))
+
+@using (Html.BeginForm("Index", "SystemLog", FormMethod.Get))
+{
+    <div class="form-horizontal">
+        <div>
+            @Html.DropDownListFor(a => a.LogFileName, Model.LogFileSelectList, "--- Select one ---", new {@class = "form-control", onChange = "this.form.submit();"})
+        </div>
+    </div>
+}
+
+<hr/>
+
+@if (Model.LogFileContent != null)
+{
+    <pre>
+@Model.LogFileContent
+</pre>
+}
