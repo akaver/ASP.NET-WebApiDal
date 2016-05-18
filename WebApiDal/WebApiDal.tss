@@ -2,70 +2,70 @@
 <ArrayOfArrayOfArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ArrayOfArrayOfString>
     <ArrayOfString>
-      <string>C:\!dev\git\ASP.NET-WebApiDal\WebApiDal\WebApi.Server\App_Start\IdentityConfig.cs</string>
+      <string>c:\!dev\git\asp.net-webapidal\webapidal\webapi.server\app_start\identityconfig.cs</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>C:\!dev\git\ASP.NET-WebApiDal\WebApiDal\Web\App_Start\IdentityConfig.cs</string>
+      <string>c:\!dev\git\asp.net-webapidal\webapidal\web\app_start\identityconfig.cs</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>C:\!dev\git\ASP.NET-WebApiDal\WebApiDal\WebApi.Server\Controllers\ValuesController.cs</string>
+      <string>c:\!dev\git\asp.net-webapidal\webapidal\webapi.server\controllers\valuescontroller.cs</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>C:\!dev\git\ASP.NET-WebApiDal\WebApiDal\WebApi.Server\App_Start\NinjectWebCommon.cs</string>
+      <string>c:\!dev\git\asp.net-webapidal\webapidal\webapi.server\app_start\ninjectwebcommon.cs</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>C:\!dev\git\ASP.NET-WebApiDal\WebApiDal\Web\App_Start\NinjectWebCommon.cs</string>
+      <string>c:\!dev\git\asp.net-webapidal\webapidal\web\app_start\ninjectwebcommon.cs</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>NuGet - Solution</string>
+      <string>c:\!dev\git\asp.net-webapidal\webapidal\web\controllers\api\valuescontroller.cs</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>C:\!dev\git\ASP.NET-WebApiDal\WebApiDal\Web\Controllers\Api\ValuesController.cs</string>
+      <string>c:\!dev\git\asp.net-webapidal\webapidal\web\helpers\usernamefactory.cs</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>C:\!dev\git\ASP.NET-WebApiDal\WebApiDal\Web\Helpers\UserNameFactory.cs</string>
+      <string>c:\!dev\git\asp.net-webapidal\webapidal\dal\username.cs</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>C:\!dev\git\ASP.NET-WebApiDal\WebApiDal\DAL\UserName.cs</string>
+      <string>c:\!dev\git\asp.net-webapidal\webapidal\webapi.server\helpers\usernamefactory.cs</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>C:\!dev\git\ASP.NET-WebApiDal\WebApiDal\WebApi.Server\Helpers\UserNameFactory.cs</string>
+      <string>c:\!dev\git\asp.net-webapidal\webapidal\web\app_start\webapiconfig.cs</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>C:\!dev\git\ASP.NET-WebApiDal\WebApiDal\Web\App_Start\WebApiConfig.cs</string>
+      <string>c:\!dev\git\asp.net-webapidal\webapidal\webapi.server\app_start\webapiconfig.cs</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>C:\!dev\git\ASP.NET-WebApiDal\WebApiDal\WebApi.Server\App_Start\WebApiConfig.cs</string>
+      <string>c:\!dev\git\asp.net-webapidal\webapidal\web\controllers\api\accountcontroller.cs</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>C:\!dev\git\ASP.NET-WebApiDal\WebApiDal\Web\Controllers\Api\AccountController.cs</string>
+      <string>c:\!dev\git\asp.net-webapidal\webapidal\webapi.server\controllers\accountcontroller.cs</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>C:\!dev\git\ASP.NET-WebApiDal\WebApiDal\WebApi.Server\Controllers\AccountController.cs</string>
+      <string>c:\!dev\git\asp.net-webapidal\webapidal\web\viewmodels\apiaccountviewmodels.cs</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>C:\!dev\git\ASP.NET-WebApiDal\WebApiDal\Web\ViewModels\ApiAccountViewModels.cs</string>
+      <string>c:\!dev\git\asp.net-webapidal\webapidal\webapi.server\models\apiaccountviewmodels.cs</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>C:\!dev\git\ASP.NET-WebApiDal\WebApiDal\WebApi.Server\Models\ApiAccountViewModels.cs</string>
+      <string>c:\!dev\git\asp.net-webapidal\webapidal\web\global.asax.cs</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>C:\!dev\git\ASP.NET-WebApiDal\WebApiDal\Web\Global.asax.cs</string>
+      <string>c:\!dev\git\asp.net-webapidal\webapidal\web\startup.cs</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>C:\!dev\git\ASP.NET-WebApiDal\WebApiDal\Web\Startup.cs</string>
-    </ArrayOfString>
-    <ArrayOfString>
-      <string>C:\!dev\git\ASP.NET-WebApiDal\WebApiDal\Web\App_Start\Startup.Auth.cs</string>
+      <string>c:\!dev\git\asp.net-webapidal\webapidal\web\app_start\startup.auth.cs</string>
     </ArrayOfString>
     <ArrayOfString>
       <string>C:\!dev\git\ASP.NET-WebApiDal\WebApiDal\WebApi.Server\App_Start\Startup.Auth.cs</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>C:\!dev\git\ASP.NET-WebApiDal\WebApiDal\WebApi.Server\Providers\ApplicationOAuthProvider.cs</string>
+      <string>c:\!dev\git\asp.net-webapidal\webapidal\webapi.server\providers\applicationoauthprovider.cs</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>C:\!dev\git\ASP.NET-WebApiDal\WebApiDal\Web\Providers\ApplicationOAuthProvider.cs</string>
+      <string>c:\!dev\git\asp.net-webapidal\webapidal\web\providers\applicationoauthprovider.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>NuGet - Solution</string>
     </ArrayOfString>
   </ArrayOfArrayOfString>
 </ArrayOfArrayOfArrayOfString>
