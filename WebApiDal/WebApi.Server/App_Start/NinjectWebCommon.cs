@@ -3,6 +3,7 @@ using DAL.Helpers;
 using DAL.Interfaces;
 using Domain.Identity;
 using Identity;
+using Interfaces.UOW;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
 using WebApi.Server.Helpers;

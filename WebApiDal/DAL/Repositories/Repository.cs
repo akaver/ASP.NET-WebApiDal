@@ -9,13 +9,14 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using DAL.Interfaces;
+using Interfaces.Repository;
 using NLog;
 
 namespace DAL.Repositories
 {
     // this is universal base EF repository implementation, to be included in all other repos
     // covers all basic crud methods, common for all other repos
-    public class EFRepository<T> : IEFRepository<T> where T : class
+    public class Repository<T> : IRepository<T> where T : class
     {
         private readonly NLog.ILogger _logger = NLog.LogManager.GetCurrentClassLogger();
         private readonly string _instanceId = Guid.NewGuid().ToString();
@@ -25,7 +26,7 @@ namespace DAL.Repositories
         protected DbSet<T> DbSet { get; set; }
 
         //Constructor, requires dbContext as dependency
-        public EFRepository(IDbContext dbContext)
+        public Repository(IDbContext dbContext)
         {
  
             if (dbContext == null)

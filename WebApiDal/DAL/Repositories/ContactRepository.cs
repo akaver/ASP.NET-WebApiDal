@@ -9,7 +9,7 @@ using Domain;
 
 namespace DAL.Repositories
 {
-    public class ContactRepository: EFRepository<Contact>, IContactRepository
+    public class ContactRepository: Repository<Contact>, IContactRepository
     {
         public ContactRepository(IDbContext dbContext) : base(dbContext)
         {

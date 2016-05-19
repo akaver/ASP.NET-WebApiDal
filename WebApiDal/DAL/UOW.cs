@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using DAL.Interfaces;
 using Domain;
+using Interfaces.Repository;
+using Interfaces.UOW;
 using NLog;
 
 namespace DAL
@@ -44,9 +46,9 @@ namespace DAL
         }
 
         //standard repos
-        public IEFRepository<ContactType> ContactTypes => GetStandardRepo<ContactType>();
-        public IEFRepository<MultiLangString> MultiLangStrings => GetStandardRepo<MultiLangString>();
-        public IEFRepository<Translation> Translations => GetStandardRepo<Translation>();
+        //public IRepository<ContactType> ContactTypes => GetStandardRepo<ContactType>();
+        //public IRepository<MultiLangString> MultiLangStrings => GetStandardRepo<MultiLangString>();
+        //public IRepository<Translation> Translations => GetStandardRepo<Translation>();
 
         // repo with custom methods
         // add it also in EFRepositoryFactories.cs, in method GetCustomFactories
@@ -56,6 +58,12 @@ namespace DAL
         //public IRoleRepository Roles => GetRepo<IRoleRepository>();
         //public IUserClaimRepository UserClaims => GetRepo<IUserClaimRepository>();
         //public IUserLoginRepository UserLogins => GetRepo<IUserLoginRepository>();
+
+        public IContactTypeRepository ContactTypes => GetRepo<IContactTypeRepository>();
+        public IMultiLangStringRepository MultiLangStrings => GetRepo<IMultiLangStringRepository>();
+        public ITranslationRepository Translations => GetRepo<ITranslationRepository>();
+
+
         public IPersonRepository Persons => GetRepo<IPersonRepository>();
         public IContactRepository Contacts => GetRepo<IContactRepository>();
         public IArticleRepository Articles => GetRepo<IArticleRepository>();
@@ -67,7 +75,7 @@ namespace DAL
         public IUserLoginIntRepository UserLoginsInt => GetRepo<IUserLoginIntRepository>();
 
         // calling standard EF repo provider
-        private IEFRepository<T> GetStandardRepo<T>() where T : class
+        private IRepository<T> GetStandardRepo<T>() where T : class
         {
             return RepositoryProvider.GetRepositoryForEntityType<T>();
         }

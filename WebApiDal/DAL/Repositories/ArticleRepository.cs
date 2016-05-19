@@ -8,10 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using DAL.Interfaces;
 using Domain;
+using Interfaces.Repository;
 
 namespace DAL.Repositories
 {
-    public class ArticleRepository : EFRepository<Article>, IArticleRepository
+    public class ArticleRepository : Repository<Article>, IArticleRepository
     {
         public ArticleRepository(IDbContext dbContext) : base(dbContext)
         {

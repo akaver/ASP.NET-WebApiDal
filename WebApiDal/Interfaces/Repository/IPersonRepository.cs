@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Domain;
 
-namespace DAL.Interfaces
+namespace Interfaces.Repository
 {
-    public interface IPersonRepository : IEFRepository<Person>
+    public interface IPersonRepository : IRepository<Person>
     {
         /// <summary>
         /// Get all Persons for this user id

@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using DAL;
 using DAL.Interfaces;
 using Domain;
+using Interfaces.UOW;
 using Microsoft.AspNet.Identity;
 using Web.ViewModels;
 

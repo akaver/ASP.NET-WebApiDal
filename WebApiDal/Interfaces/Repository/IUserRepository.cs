@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Domain.Identity;
 using Microsoft.AspNet.Identity;
 
-namespace DAL.Interfaces
+namespace Interfaces.Repository
 {
     public interface IUserIntRepository : IUserRepository<int, UserInt>
     {
@@ -16,7 +16,7 @@ namespace DAL.Interfaces
     {
     }
 
-    public interface IUserRepository<in TKey, TUser> : IEFRepository<TUser>
+    public interface IUserRepository<in TKey, TUser> : IRepository<TUser>
         where TUser : class, IUser<TKey>
     {
         TUser GetUserByUserName(string userName);

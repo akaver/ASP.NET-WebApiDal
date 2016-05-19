@@ -8,6 +8,7 @@ using DAL;
 using DAL.Helpers;
 using DAL.Interfaces;
 using Domain;
+using Interfaces.UOW;
 using Web.ViewModels;
 
 namespace Web.Controllers

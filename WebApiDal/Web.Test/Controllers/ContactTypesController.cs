@@ -8,18 +8,27 @@ using System.Web;
 using System.Web.Mvc;
 using DAL;
 using Domain;
+using Interfaces.UOW;
 
 namespace Web.Test.Controllers
 {
     public class ContactTypesController : Controller
     {
         private DataBaseContext db = new DataBaseContext();
+        private readonly IUOW _uow;
+
+        public ContactTypesController(IUOW uow)
+        {
+            _uow = uow;
+        }
 
         // GET: ContactTypes
         public ActionResult Index()
         {
-            var contactTypes = db.ContactTypes.Include(c => c.ContactTypeName);
-            return View(contactTypes.ToList());
+
+            //var contactTypes = db.ContactTypes.Include(c => c.ContactTypeName);
+            var contactTypes = _uow.ContactTypes.All;
+            return View(contactTypes);
         }
 
         // GET: ContactTypes/Details/5
@@ -29,7 +38,10 @@ namespace Web.Test.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ContactType contactType = db.ContactTypes.Find(id);
+
+            //ContactType contactType = db.ContactTypes.Find(id);
+            var contactType = _uow.ContactTypes.GetById(id);
+
             if (contactType == null)
             {
                 return HttpNotFound();
@@ -49,7 +61,7 @@ namespace Web.Test.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ContactTypeId,ContactTypeNameId,CreatedAtDT,CreatedBy,ModifiedAtDT,ModifiedBy")] ContactType contactType)
+        public ActionResult Create(ContactType contactType)
         {
             if (ModelState.IsValid)
             {
@@ -83,7 +95,7 @@ namespace Web.Test.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ContactTypeId,ContactTypeNameId,CreatedAtDT,CreatedBy,ModifiedAtDT,ModifiedBy")] ContactType contactType)
+        public ActionResult Edit(ContactType contactType)
         {
             if (ModelState.IsValid)
             {

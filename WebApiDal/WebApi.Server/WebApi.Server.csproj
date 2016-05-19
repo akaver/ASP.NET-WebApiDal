@@ -236,6 +236,10 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\RolesIntController.cs" />
+    <Compile Include="Controllers\UsersIntController.cs" />
+    <Compile Include="Controllers\ArticlesController.cs" />
+    <Compile Include="Controllers\ContactTypesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -344,6 +348,10 @@
     <ProjectReference Include="..\Identity\Identity.csproj">
       <Project>{5b0755b3-5cf6-4cfb-b328-e152c98e6e22}</Project>
       <Name>Identity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Interfaces\Interfaces.csproj">
+      <Project>{3C79898C-DC51-49DA-B928-C33D2A383592}</Project>
+      <Name>Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

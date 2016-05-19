@@ -4,6 +4,7 @@ using System.Data.Entity;
 using System.Linq;
 using DAL.Interfaces;
 using Domain.Identity;
+using Interfaces.Repository;
 
 namespace DAL.Repositories
 {
@@ -25,7 +26,7 @@ namespace DAL.Repositories
         }
     }
 
-    public class UserLoginRepository<TKey, TRole, TUser, TUserClaim, TUserLogin, TUserRole> : EFRepository<TUserLogin>
+    public class UserLoginRepository<TKey, TRole, TUser, TUserClaim, TUserLogin, TUserRole> : Repository<TUserLogin>
         where TKey : IEquatable<TKey>
         where TRole : Role<TKey, TRole, TUser, TUserClaim, TUserLogin, TUserRole>
         where TUser : User<TKey, TRole, TUser, TUserClaim, TUserLogin, TUserRole>

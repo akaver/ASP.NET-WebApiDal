@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DAL.Interfaces;
 using DAL.Repositories;
+using Interfaces.Repository;
 using NLog;
 
 namespace DAL.Helpers
@@ -43,7 +44,11 @@ namespace DAL.Helpers
                 //{typeof(IUserClaimRepository), dbContext => new UserClaimRepository(dbContext)},
                 //{typeof(IUserLoginRepository), dbContext => new UserLoginRepository(dbContext)},
                 //{typeof(IRoleRepository), dbContext => new RoleRepository(dbContext)},
-                {typeof (IPersonRepository), dbContext => new PersonRepository(dbContext)},
+                {typeof (IContactTypeRepository), dbContext => new ContactTypeRepository(dbContext)},
+                {typeof (IMultiLangStringRepository), dbContext => new MultiLangStringRepository(dbContext)},
+                {typeof (ITranslationRepository), dbContext => new TranslationRepository(dbContext)},
+
+                { typeof (IPersonRepository), dbContext => new PersonRepository(dbContext)},
                 {typeof (IContactRepository), dbContext => new ContactRepository(dbContext)},
                 {typeof (IArticleRepository), dbContext => new ArticleRepository(dbContext)},
                 {typeof (IUserIntRepository), dbContext => new UserIntRepository(dbContext)},
@@ -71,7 +76,7 @@ namespace DAL.Helpers
         protected virtual Func<IDbContext, object> DefaultEntityRepositoryFactory<T>() where T : class
         {
             // create new instance of EFRepository<T>
-            return dbContext => new EFRepository<T>(dbContext);
+            return dbContext => new Repository<T>(dbContext);
         }
 
         public void Dispose()

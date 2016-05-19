@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Domain.Identity;
 
-namespace DAL.Interfaces
+namespace Interfaces.Repository
 {
     public interface IUserRoleIntRepository : IUserRoleRepository<int, UserRoleInt>
     {
@@ -15,7 +15,7 @@ namespace DAL.Interfaces
     {
     }
 
-    public interface IUserRoleRepository<in TKey, TUserRole> : IEFRepository<TUserRole>
+    public interface IUserRoleRepository<in TKey, TUserRole> : IRepository<TUserRole>
         where TUserRole : class
     {
         TUserRole GetByUserIdAndRoleId(TKey roleId, TKey userId);

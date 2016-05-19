@@ -1,17 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DAL.Interfaces;
 using Domain;
+using Interfaces.Repository;
 
-namespace DAL.Interfaces
+namespace Interfaces.UOW
 {
     public interface IUOW
     {
         //save pending changes to the data store
         void Commit();
-        void RefreshAllEntities();
+        //void RefreshAllEntities();
 
         //UOW Methods, that dont fit into specific repo
 
@@ -19,9 +16,9 @@ namespace DAL.Interfaces
         T GetRepository<T>() where T : class;
 
         // standard autocreated repos, since we do not have any special methods in interfaces
-        IEFRepository<ContactType> ContactTypes { get; }
-        IEFRepository<MultiLangString> MultiLangStrings { get; }
-        IEFRepository<Translation> Translations { get; }
+        IContactTypeRepository ContactTypes { get; }
+        IMultiLangStringRepository MultiLangStrings { get; }
+        ITranslationRepository Translations { get; }
 
 
         IPersonRepository Persons { get; }

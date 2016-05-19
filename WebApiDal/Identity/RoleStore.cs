@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using DAL.Interfaces;
 using DAL.Repositories;
 using Domain.Identity;
+using Interfaces.Repository;
+using Interfaces.UOW;
 using Microsoft.AspNet.Identity;
 
 namespace Identity

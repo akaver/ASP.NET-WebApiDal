@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Domain.Identity;
 using Microsoft.AspNet.Identity;
 
-namespace DAL.Interfaces
+namespace Interfaces.Repository
 {
     public interface IRoleIntRepository : IRoleRepository<int, RoleInt>
     {
@@ -16,7 +16,7 @@ namespace DAL.Interfaces
     {
     }
 
-    public interface IRoleRepository<in TKey, TRole> : IEFRepository<TRole>
+    public interface IRoleRepository<in TKey, TRole> : IRepository<TRole>
         where TRole : class, IRole<TKey>
     {
         TRole GetByRoleName(string roleName);

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Web.Http;
 using DAL.Interfaces;
+using Interfaces.UOW;
 using Microsoft.AspNet.Identity;
 
 namespace Web.Controllers.Api

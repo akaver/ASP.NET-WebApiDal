@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Domain.Identity;
 
-namespace DAL.Interfaces
+namespace Interfaces.Repository
 {
     public interface IUserClaimIntRepository : IUserClaimRepository<UserClaimInt>
     {
@@ -15,7 +15,7 @@ namespace DAL.Interfaces
     {
     }
 
-    public interface IUserClaimRepository<TUserClaim> : IEFRepository<TUserClaim>
+    public interface IUserClaimRepository<TUserClaim> : IRepository<TUserClaim>
         where TUserClaim : class
     {
         List<TUserClaim> AllIncludeUser();

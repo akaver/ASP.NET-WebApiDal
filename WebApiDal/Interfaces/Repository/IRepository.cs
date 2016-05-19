@@ -5,10 +5,10 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DAL.Interfaces
+namespace Interfaces.Repository
 {
     // this is the base repository interface for all EF repositories
-    public interface IEFRepository<T> : IDisposable
+    public interface IRepository<T> : IDisposable
         where T : class
     {
         // gett all records in table

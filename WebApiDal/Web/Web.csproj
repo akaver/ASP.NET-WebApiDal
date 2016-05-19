@@ -2427,9 +2427,17 @@
       <Project>{5b0755b3-5cf6-4cfb-b328-e152c98e6e22}</Project>
       <Name>Identity</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Interfaces\Interfaces.csproj">
+      <Project>{3C79898C-DC51-49DA-B928-C33D2A383592}</Project>
+      <Name>Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Resources\Resources.csproj">
       <Project>{7308994f-36c4-49c2-8421-215aff278799}</Project>
       <Name>Resources</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebApi.DAL\WebApi.DAL.csproj">
+      <Project>{8e15b58f-ceaa-4457-8387-f148d974b9db}</Project>
+      <Name>WebApi.DAL</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
