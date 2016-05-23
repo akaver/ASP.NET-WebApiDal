@@ -5,20 +5,20 @@ using DAL.Helpers;
 using DAL.Interfaces;
 using Domain.Identity;
 using Identity;
+using Interfaces;
 using Interfaces.UOW;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
 using Microsoft.Web.Infrastructure.DynamicModuleHelper;
 using Ninject;
 using Ninject.Web.Common;
-using Web;
 using Web.Helpers;
 using WebApi.DAL;
 
-[assembly: WebActivatorEx.PreApplicationStartMethod(typeof (NinjectWebCommon), "Start")]
-[assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof (NinjectWebCommon), "Stop")]
+[assembly: WebActivatorEx.PreApplicationStartMethod(typeof (Web.App_Start.NinjectWebCommon), "Start")]
+[assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof (Web.App_Start.NinjectWebCommon), "Stop")]
 
-namespace Web
+namespace Web.App_Start
 {
     public static class NinjectWebCommon
     {
@@ -70,16 +70,14 @@ namespace Web
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-            //kernel.Bind<IDbContext>().To<DataBaseContext>().InRequestScope();
+            kernel.Bind<IDbContext>().To<DataBaseContext>().InRequestScope();
             //kernel.Bind<IDbContextFactory>().To<DbContextFactory>().InRequestScope();
 
-            //kernel.Bind<EFRepositoryFactories>().To<EFRepositoryFactories>().InSingletonScope();
-            //kernel.Bind<IEFRepositoryProvider>().To<EFRepositoryProvider>().InRequestScope();
+            kernel.Bind<EFRepositoryFactories>().To<EFRepositoryFactories>().InSingletonScope();
+            kernel.Bind<IEFRepositoryProvider>().To<EFRepositoryProvider>().InRequestScope();
+
             //kernel.Bind<IUOW>().To<UOW>().InRequestScope();
-
-
             kernel.Bind<IUOW>().To<WebApiUOW>().InRequestScope();
-
 
             kernel.Bind<IUserStore<User>>().To<UserStore>().InRequestScope();
             kernel.Bind<IRoleStore<Role>>().To<RoleStore>();

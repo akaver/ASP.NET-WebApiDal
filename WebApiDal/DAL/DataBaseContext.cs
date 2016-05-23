@@ -13,6 +13,7 @@ using DAL.Helpers;
 using DAL.Interfaces;
 using Domain;
 using Domain.Identity;
+using Interfaces;
 using Ninject;
 using NLog;
 
@@ -36,6 +37,8 @@ namespace DAL
             //Database.SetInitializer(new MigrateDatabaseToLatestVersion<DataBaseContext,Migrations.Configuration>());
             //Database.SetInitializer(new DropCreateDatabaseIfModelChanges<DataBaseContext>());
             Database.SetInitializer(new DatabaseInitializer());
+
+            // no proxy objects!!!!
             Configuration.LazyLoadingEnabled = false;
 
 #if DEBUG

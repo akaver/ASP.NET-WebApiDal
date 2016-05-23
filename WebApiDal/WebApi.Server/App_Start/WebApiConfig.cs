@@ -19,7 +19,6 @@ namespace WebApi.Server
             config.SuppressDefaultHostAuthentication();
             config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
 
-
             var formatters = config.Formatters;
             var jsonFormatter = formatters.JsonFormatter;
 
@@ -48,6 +47,8 @@ namespace WebApi.Server
 
             // culture of the serializer
             jsonFormatter.SerializerSettings.Culture = new CultureInfo("et-EE");
+
+
 
 
             // Web API routes

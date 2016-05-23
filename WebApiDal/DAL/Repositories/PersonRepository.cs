@@ -6,11 +6,11 @@ using System.Text;
 using System.Threading.Tasks;
 using DAL.Interfaces;
 using Domain;
-using Interfaces.Repository;
+using Interfaces.Repositories;
 
 namespace DAL.Repositories
 {
-    public class PersonRepository : Repository<Person>, IPersonRepository
+    public class PersonRepository : EFRepository<Person>, IPersonRepository
     {
         public PersonRepository(IDbContext dbContext) : base(dbContext)
         {

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using DAL.Interfaces;
 using DAL.Repositories;
 using Domain.Identity;
-using Interfaces.Repository;
+using Interfaces.Repositories;
 using Interfaces.UOW;
 using Microsoft.AspNet.Identity;
 using NLog;
@@ -73,7 +73,7 @@ namespace Identity
         where TUserLogin : UserLogin<TKey, TRole, TUser, TUserClaim, TUserLogin, TUserRole>, new()
         where TUserRole : UserRole<TKey, TRole, TUser, TUserClaim, TUserLogin, TUserRole>, new()
         where TRoleRepository : class, IRoleRepository<TKey, TRole>
-        where TUserClaimRepository : class, IUserClaimRepository<TUserClaim>
+        where TUserClaimRepository : class, IUserClaimRepository<TKey, TUserClaim>
         where TUserLoginRepository : class, IUserLoginRepository<TUserLogin>
         where TUserRepository : class, IUserRepository<TKey, TUser>
         where TUserRoleRepository : class, IUserRoleRepository<TKey, TUserRole>
@@ -641,11 +641,16 @@ namespace Identity
             ThrowIfDisposed();
             if (user == null)
             {
-                throw new ArgumentNullException("user");
+                throw new ArgumentNullException(nameof(user));
             }
-            return
-                Task.FromResult<IList<System.Security.Claims.Claim>>(
-                    user.Claims.Select(c => new System.Security.Claims.Claim(c.ClaimType, c.ClaimValue)).ToList());
+            //return
+            //    Task.FromResult<IList<System.Security.Claims.Claim>>(
+            //        user.Claims.Select(c => new System.Security.Claims.Claim(c.ClaimType, c.ClaimValue)).ToList());
+            var res =
+                _uow.GetRepository<TUserClaimRepository>().AllForUserId(user.Id)
+                    .Select(c => new System.Security.Claims.Claim(c.ClaimType, c.ClaimValue))
+                    .ToList();
+            return Task.FromResult<IList<System.Security.Claims.Claim>>(res);
         }
 
         public Task AddClaimAsync(TUser user, System.Security.Claims.Claim claim)

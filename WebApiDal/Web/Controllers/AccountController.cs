@@ -1,15 +1,18 @@
 ﻿using System;
 using System.Globalization;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using Domain.Identity;
+using Interfaces.UOW;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using NLog;
 using Web.ViewModels;
+using WebApi.DAL.Interfaces;
 
 namespace Web.Controllers
 {
@@ -21,14 +24,17 @@ namespace Web.Controllers
         private readonly ApplicationSignInManager _signInManager;
         private readonly ApplicationUserManager _userManager;
         private readonly IAuthenticationManager _authenticationManager;
+        private readonly IUOW _uow;
 
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager,
-            IAuthenticationManager authenticationManager, ILogger logger)
+            IAuthenticationManager authenticationManager, ILogger logger, IUOW uow)
         {
+            _logger = logger;
+
             _userManager = userManager;
             _signInManager = signInManager;
             _authenticationManager = authenticationManager;
-            _logger = logger;
+            _uow = uow;
 
             _logger.Debug("InstanceId: " + _instanceId);
         }
@@ -60,6 +66,23 @@ namespace Web.Controllers
                 await
                     _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe,
                         shouldLockout: false);
+            // check for UOW type, if webapi - get token and store it as claim
+            var webApiUOW = _uow as IWebApiUOW;
+            if (webApiUOW != null)
+            {
+                var token = webApiUOW.GetWebApiToken(model.Email, model.Password);
+                var user = _userManager.Find(model.Email, model.Password);
+                //remove any previous auth claims
+                var claims = _userManager.GetClaims(user.Id).Where(c => c.Type == ClaimTypes.Authentication).ToList();
+                _logger.Debug($"Claimcount: {claims.Count}");
+                foreach (var claim in claims)
+                {
+                    _userManager.RemoveClaim(user.Id, claim);
+                }
+                _userManager.AddClaim(user.Id,new Claim(ClaimTypes.Authentication,token)); 
+                _signInManager.SignIn(user, true, true);
+            }
+
             switch (result)
             {
                 case SignInStatus.Success:

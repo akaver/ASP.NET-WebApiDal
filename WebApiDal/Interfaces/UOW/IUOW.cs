@@ -1,6 +1,5 @@
-﻿using DAL.Interfaces;
-using Domain;
-using Interfaces.Repository;
+﻿using Domain;
+using Interfaces.Repositories;
 
 namespace Interfaces.UOW
 {

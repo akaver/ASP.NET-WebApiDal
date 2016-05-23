@@ -1,13 +1,14 @@
 ﻿using System.Collections.Generic;
 using System.Net.Http;
-using DAL.Interfaces;
 using Domain;
+using Interfaces.Repositories;
+using Microsoft.Owin.Security;
 
 namespace WebApi.DAL.Repositories
 {
-    public class ContactRepository: WebApiRepository<Contact>, IContactRepository
+    public class ContactRepository : WebApiRepository<Contact>, IContactRepository
     {
-        public ContactRepository(HttpClient httpClient, string endPoint) : base(httpClient, endPoint)
+        public ContactRepository(HttpClient httpClient, string endPoint, IAuthenticationManager authenticationManager) : base(httpClient, endPoint, authenticationManager)
         {
         }
 

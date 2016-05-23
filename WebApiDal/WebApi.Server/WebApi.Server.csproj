@@ -9,7 +9,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{E3D7B09F-80EC-4BE1-9AD4-33F77B19804F}</ProjectGuid>
+    <ProjectGuid>{6E0CBB55-9FB8-42BD-BD80-5AF4972A8C09}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -79,6 +79,10 @@
     </Reference>
     <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
       <HintPath>..\packages\NLog.4.3.4\lib\net45\NLog.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NLog.Web, Version=0.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.Web.4.2.1\lib\net35\NLog.Web.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -235,13 +239,13 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
-    <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\RolesIntController.cs" />
-    <Compile Include="Controllers\UsersIntController.cs" />
-    <Compile Include="Controllers\ArticlesController.cs" />
-    <Compile Include="Controllers\ContactTypesController.cs" />
+    <Compile Include="Controllers\Api\AccountController.cs" />
+    <Compile Include="Controllers\Api\ArticlesController.cs" />
+    <Compile Include="Controllers\Api\RolesIntController.cs" />
+    <Compile Include="Controllers\Api\UserClaimsIntController.cs" />
+    <Compile Include="Controllers\Api\UsersIntController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Controllers\Api\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -294,6 +298,11 @@
     <Content Include="NLog.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="App_Data\countries.json" />
+    <Content Include="App_Data\first-names.json" />
+    <Content Include="App_Data\middle-names.json" />
+    <Content Include="App_Data\names.json" />
+    <Content Include="App_Data\places.json" />
     <None Include="NLog.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -328,9 +337,7 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
@@ -338,19 +345,19 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj">
-      <Project>{fa3fe70d-bea7-4c7b-940a-7e9ca2c345a6}</Project>
+      <Project>{FA3FE70D-BEA7-4C7B-940A-7E9CA2C345A6}</Project>
       <Name>DAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\Domain\Domain.csproj">
-      <Project>{54e9dc6c-c740-4878-b57e-546c09b4e8ca}</Project>
+      <Project>{54E9DC6C-C740-4878-B57E-546C09B4E8CA}</Project>
       <Name>Domain</Name>
     </ProjectReference>
     <ProjectReference Include="..\Identity\Identity.csproj">
-      <Project>{5b0755b3-5cf6-4cfb-b328-e152c98e6e22}</Project>
+      <Project>{5B0755B3-5CF6-4CFB-B328-E152C98E6E22}</Project>
       <Name>Identity</Name>
     </ProjectReference>
     <ProjectReference Include="..\Interfaces\Interfaces.csproj">
-      <Project>{3C79898C-DC51-49DA-B928-C33D2A383592}</Project>
+      <Project>{E80E1D6A-8585-4222-9964-715D978FE9EC}</Project>
       <Name>Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
@@ -370,9 +377,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>3506</DevelopmentServerPort>
+          <DevelopmentServerPort>28961</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:3506/</IISUrl>
+          <IISUrl>http://localhost:27326/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

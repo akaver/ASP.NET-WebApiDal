@@ -3,7 +3,7 @@ using System.Net;
 using System.Web.Mvc;
 using DAL.Interfaces;
 using Domain.Identity;
-using Interfaces.Repository;
+using Interfaces.Repositories;
 using Interfaces.UOW;
 using Microsoft.Owin.Security;
 using NLog;

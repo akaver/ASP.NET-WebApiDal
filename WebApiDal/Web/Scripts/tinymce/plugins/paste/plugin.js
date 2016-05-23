@@ -818,10 +818,6 @@ define("tinymce/pasteplugin/Clipboard", [
 				draggingInternally = e.type == 'dragstart';
 			});
 
-			function isPlainTextFileUrl(content) {
-				return content['text/plain'].indexOf('file://') === 0;
-			}
-
 			editor.on('drop', function(e) {
 				var dropContent, rng;
 
@@ -833,7 +829,7 @@ define("tinymce/pasteplugin/Clipboard", [
 
 				dropContent = getDataTransferItems(e.dataTransfer);
 
-				if ((!hasHtmlOrText(dropContent) || isPlainTextFileUrl(dropContent)) && pasteImageData(e, rng)) {
+				if (!hasHtmlOrText(dropContent) && pasteImageData(e, rng)) {
 					return;
 				}
 
@@ -843,23 +839,20 @@ define("tinymce/pasteplugin/Clipboard", [
 					if (content) {
 						e.preventDefault();
 
-						// FF 45 doesn't paint a caret when dragging in text in due to focus call by execCommand
-						Delay.setEditorTimeout(editor, function() {
-							editor.undoManager.transact(function() {
-								if (dropContent['mce-internal']) {
-									editor.execCommand('Delete');
-								}
+						editor.undoManager.transact(function() {
+							if (dropContent['mce-internal']) {
+								editor.execCommand('Delete');
+							}
 
-								editor.selection.setRng(rng);
+							editor.selection.setRng(rng);
 
-								content = Utils.trimHtml(content);
+							content = Utils.trimHtml(content);
 
-								if (!dropContent['text/html']) {
-									pasteText(content);
-								} else {
-									pasteHtml(content);
-								}
-							});
+							if (!dropContent['text/html']) {
+								pasteText(content);
+							} else {
+								pasteHtml(content);
+							}
 						});
 					}
 				}
@@ -1677,7 +1670,7 @@ define("tinymce/pasteplugin/Plugin", [
 		});
 
 		// Block all drag/drop events
-		if (editor.settings.paste_block_drop) {
+		if (editor.paste_block_drop) {
 			editor.on('dragend dragover draggesture dragdrop drop drag', function(e) {
 				e.preventDefault();
 				e.stopPropagation();

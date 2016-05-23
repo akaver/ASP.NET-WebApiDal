@@ -744,9 +744,16 @@ define("tinymce/spellcheckerplugin/Plugin", [
 		}
 
 		function defaultSpellcheckCallback(method, text, doneCallback, errorCallback) {
-			var data = {method: method, lang: settings.spellchecker_language}, postData = '';
+			var data = {method: method}, postData = '';
 
-			data[method == "addToDictionary" ? "word" : "text"] = text;
+			if (method == "spellcheck") {
+				data.text = text;
+				data.lang = settings.spellchecker_language;
+			}
+
+			if (method == "addToDictionary") {
+				data.word = text;
+			}
 
 			Tools.each(data, function(value, key) {
 				if (postData) {

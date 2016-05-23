@@ -2357,6 +2357,16 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce.woff" />
+    <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce.ttf" />
+    <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce.json" />
+    <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce.eot" />
+    <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce-small.woff" />
+    <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce-small.ttf" />
+    <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce-small.json" />
+    <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce-small.eot" />
+    <Content Include="Scripts\tinymce\skins\lightgray\fonts\readme.md" />
+    <Content Include="Scripts\tinymce\langs\readme.md" />
     <Content Include="Views\Persons\Create.cshtml" />
     <Content Include="Views\Persons\Delete.cshtml" />
     <Content Include="Views\Persons\Details.cshtml" />
@@ -2377,16 +2387,6 @@
     <Content Include="Views\FDemo\Index.cshtml" />
     <Content Include="Views\FDemo\DeleteFile.cshtml" />
     <Content Include="Views\FDemo\UploadFiles.cshtml" />
-    <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce.woff" />
-    <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce.ttf" />
-    <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce.json" />
-    <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce.eot" />
-    <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce-small.woff" />
-    <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce-small.ttf" />
-    <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce-small.json" />
-    <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce-small.eot" />
-    <Content Include="Scripts\tinymce\skins\lightgray\fonts\readme.md" />
-    <Content Include="Scripts\tinymce\langs\readme.md" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Admin\Views\Shared\" />
@@ -2428,7 +2428,7 @@
       <Name>Identity</Name>
     </ProjectReference>
     <ProjectReference Include="..\Interfaces\Interfaces.csproj">
-      <Project>{3C79898C-DC51-49DA-B928-C33D2A383592}</Project>
+      <Project>{E80E1D6A-8585-4222-9964-715D978FE9EC}</Project>
       <Name>Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\Resources\Resources.csproj">
@@ -2436,7 +2436,7 @@
       <Name>Resources</Name>
     </ProjectReference>
     <ProjectReference Include="..\WebApi.DAL\WebApi.DAL.csproj">
-      <Project>{8e15b58f-ceaa-4457-8387-f148d974b9db}</Project>
+      <Project>{97F822BC-34F0-4E2A-8BD0-A1EE6C35169C}</Project>
       <Name>WebApi.DAL</Name>
     </ProjectReference>
   </ItemGroup>

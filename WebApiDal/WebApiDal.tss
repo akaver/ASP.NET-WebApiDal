@@ -2,70 +2,58 @@
 <ArrayOfArrayOfArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ArrayOfArrayOfString>
     <ArrayOfString>
-      <string>c:\!dev\git\asp.net-webapidal\webapidal\webapi.server\app_start\identityconfig.cs</string>
+      <string>C:\!dev\git\ASP.NET-BaseApps\ContactApp\WebApi.DAL\WebApiUOW.cs</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>c:\!dev\git\asp.net-webapidal\webapidal\web\app_start\identityconfig.cs</string>
+      <string>C:\!dev\git\ASP.NET-BaseApps\ContactApp\Interfaces\UOW\IUOW.cs</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>c:\!dev\git\asp.net-webapidal\webapidal\webapi.server\controllers\valuescontroller.cs</string>
+      <string>C:\!dev\git\ASP.NET-BaseApps\ContactApp\Interfaces\Repositories\IContactTypeRepository.cs</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>c:\!dev\git\asp.net-webapidal\webapidal\webapi.server\app_start\ninjectwebcommon.cs</string>
+      <string>C:\!dev\git\ASP.NET-BaseApps\ContactApp\Interfaces\Repositories\IArticleRepository.cs</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>c:\!dev\git\asp.net-webapidal\webapidal\web\app_start\ninjectwebcommon.cs</string>
+      <string>C:\!dev\git\ASP.NET-BaseApps\ContactApp\Interfaces\Repositories\IMultiLangStringRepository.cs</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>c:\!dev\git\asp.net-webapidal\webapidal\web\controllers\api\valuescontroller.cs</string>
+      <string>C:\!dev\git\ASP.NET-BaseApps\ContactApp\Interfaces\Repositories\ITranslationRepository.cs</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>c:\!dev\git\asp.net-webapidal\webapidal\web\helpers\usernamefactory.cs</string>
+      <string>C:\!dev\git\ASP.NET-BaseApps\ContactApp\DAL\Repositories\TranslationRepsoitory.cs</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>c:\!dev\git\asp.net-webapidal\webapidal\dal\username.cs</string>
+      <string>C:\!dev\git\ASP.NET-BaseApps\ContactApp\DAL\Repositories\MultiLangStringRepository.cs</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>c:\!dev\git\asp.net-webapidal\webapidal\webapi.server\helpers\usernamefactory.cs</string>
+      <string>C:\!dev\git\ASP.NET-BaseApps\ContactApp\DAL\Repositories\ContactTypeRepository.cs</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>c:\!dev\git\asp.net-webapidal\webapidal\web\app_start\webapiconfig.cs</string>
+      <string>C:\!dev\git\ASP.NET-BaseApps\ContactApp\DAL\Helpers\EFRepositoryFactories.cs</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>c:\!dev\git\asp.net-webapidal\webapidal\webapi.server\app_start\webapiconfig.cs</string>
+      <string>C:\!dev\git\ASP.NET-BaseApps\ContactApp\DAL\UOW.cs</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>c:\!dev\git\asp.net-webapidal\webapidal\web\controllers\api\accountcontroller.cs</string>
-    </ArrayOfString>
-    <ArrayOfString>
-      <string>c:\!dev\git\asp.net-webapidal\webapidal\webapi.server\controllers\accountcontroller.cs</string>
-    </ArrayOfString>
-    <ArrayOfString>
-      <string>c:\!dev\git\asp.net-webapidal\webapidal\web\viewmodels\apiaccountviewmodels.cs</string>
-    </ArrayOfString>
-    <ArrayOfString>
-      <string>c:\!dev\git\asp.net-webapidal\webapidal\webapi.server\models\apiaccountviewmodels.cs</string>
-    </ArrayOfString>
-    <ArrayOfString>
-      <string>c:\!dev\git\asp.net-webapidal\webapidal\web\global.asax.cs</string>
-    </ArrayOfString>
-    <ArrayOfString>
-      <string>c:\!dev\git\asp.net-webapidal\webapidal\web\startup.cs</string>
-    </ArrayOfString>
-    <ArrayOfString>
-      <string>c:\!dev\git\asp.net-webapidal\webapidal\web\app_start\startup.auth.cs</string>
-    </ArrayOfString>
-    <ArrayOfString>
-      <string>C:\!dev\git\ASP.NET-WebApiDal\WebApiDal\WebApi.Server\App_Start\Startup.Auth.cs</string>
-    </ArrayOfString>
-    <ArrayOfString>
-      <string>c:\!dev\git\asp.net-webapidal\webapidal\webapi.server\providers\applicationoauthprovider.cs</string>
-    </ArrayOfString>
-    <ArrayOfString>
-      <string>c:\!dev\git\asp.net-webapidal\webapidal\web\providers\applicationoauthprovider.cs</string>
+      <string>C:\!dev\git\ASP.NET-BaseApps\ContactApp\WebApi.DAL\Repositories\WebApiRepository.cs</string>
     </ArrayOfString>
     <ArrayOfString>
       <string>NuGet - Solution</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>C:\!dev\git\ASP.NET-BaseApps\ContactApp\DAL\Repositories\ArticleRepository.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>C:\!dev\git\ASP.NET-BaseApps\ContactApp\DAL\Repositories\EFRepository.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>C:\!dev\git\ASP.NET-BaseApps\ContactApp\WebApi.DAL\Repositories\ArticleRepository.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>C:\!dev\git\ASP.NET-BaseApps\ContactApp\WebApi.Server\Helpers\UserNameFactory.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>C:\!dev\git\ASP.NET-BaseApps\ContactApp\Web\Web.config</string>
     </ArrayOfString>
   </ArrayOfArrayOfString>
 </ArrayOfArrayOfArrayOfString>

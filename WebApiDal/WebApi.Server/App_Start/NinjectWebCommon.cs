@@ -3,8 +3,10 @@ using DAL.Helpers;
 using DAL.Interfaces;
 using Domain.Identity;
 using Identity;
+using Interfaces;
 using Interfaces.UOW;
 using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
 using WebApi.Server.Helpers;
 
@@ -78,22 +80,21 @@ namespace WebApi.Server.App_Start
             kernel.Bind<IEFRepositoryProvider>().To<EFRepositoryProvider>().InRequestScope();
             kernel.Bind<IUOW>().To<UOW>().InRequestScope();
 
-            kernel.Bind<IUserStore<User>>().To<UserStore>().InRequestScope();
-            kernel.Bind<IRoleStore<Role>>().To<RoleStore>();
+            //kernel.Bind<IUserStore<User>>().To<UserStore<>>().InRequestScope();
+            //kernel.Bind<IRoleStore<Role>>().To<RoleStore>();
             kernel.Bind<IUserStore<UserInt, int>>().To<UserStoreInt>().InRequestScope();
             kernel.Bind<IRoleStore<RoleInt, int>>().To<RoleStoreInt>().InRequestScope();
 
-            //kernel.Bind<ApplicationSignInManager>().To<ApplicationSignInManager>().InRequestScope();
-            //kernel.Bind<ApplicationUserManager>().To<ApplicationUserManager>().InRequestScope();
-            //kernel.Bind<ApplicationRoleManager>().To<ApplicationRoleManager>().InRequestScope();
+            kernel.Bind<ApplicationSignInManager>().To<ApplicationSignInManager>().InRequestScope();
+            kernel.Bind<ApplicationUserManager>().To<ApplicationUserManager>().InRequestScope();
+            kernel.Bind<ApplicationRoleManager>().To<ApplicationRoleManager>().InRequestScope();
 
-            //kernel.Bind<IAuthenticationManager>().ToMethod(a => HttpContext.Current.GetOwinContext().Authentication).InRequestScope();
+            kernel.Bind<IAuthenticationManager>().ToMethod(a => HttpContext.Current.GetOwinContext().Authentication).InRequestScope();
 
             // http://stackoverflow.com/questions/5646820/logger-wrapper-best-practice
             kernel.Bind<NLog.ILogger>().ToMethod(a => NLog.LogManager.GetCurrentClassLogger());
 
             kernel.Bind<IUserNameResolver>().ToMethod(a => new UserNameResolver(UserNameFactory.GetCurrentUserNameFactory())).InSingletonScope();
-
         }
     }
 }

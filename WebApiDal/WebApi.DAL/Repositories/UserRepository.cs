@@ -1,7 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
+using System.Text;
+using System.Threading.Tasks;
 using Domain.Identity;
-using Interfaces.Repository;
+using Interfaces.Repositories;
+using Microsoft.Owin.Security;
 using NLog;
 
 namespace WebApi.DAL.Repositories
@@ -9,14 +14,14 @@ namespace WebApi.DAL.Repositories
     public class UserIntRepository : UserRepository<int, RoleInt, UserInt, UserClaimInt, UserLoginInt, UserRoleInt>,
         IUserIntRepository
     {
-        public UserIntRepository(HttpClient httpClient, string endPoint) : base(httpClient, endPoint)
+        public UserIntRepository(HttpClient httpClient, string endPoint, IAuthenticationManager authenticationManager) : base(httpClient, endPoint, authenticationManager)
         {
         }
     }
 
     public class UserRepository : UserRepository<string, Role, User, UserClaim, UserLogin, UserRole>, IUserRepository
     {
-        public UserRepository(HttpClient httpClient, string endPoint) : base(httpClient, endPoint)
+        public UserRepository(HttpClient httpClient, string endPoint, IAuthenticationManager authenticationManager) : base(httpClient, endPoint, authenticationManager)
         {
         }
     }
@@ -31,14 +36,14 @@ namespace WebApi.DAL.Repositories
     {
         private readonly ILogger _logger = NLog.LogManager.GetCurrentClassLogger();
 
-        public UserRepository(HttpClient httpClient, string endPoint) : base(httpClient, endPoint)
+        public UserRepository(HttpClient httpClient, string endPoint, IAuthenticationManager authenticationManager) : base(httpClient, endPoint, authenticationManager)
         {
         }
         public TUser GetUserByUserName(string userName)
         {
             //return DbSet.FirstOrDefault(a => a.UserName.ToUpper() == userName.ToUpper());
 
-            var response = HttpClient.GetAsync(EndPoint + nameof(GetUserByUserName) + "/" + userName+"/").Result;
+            var response = HttpClient.GetAsync(EndPoint + nameof(GetUserByUserName) + "/" + userName + "/").Result;
             if (response.IsSuccessStatusCode)
             {
                 var res = response.Content.ReadAsAsync<TUser>().Result;
@@ -50,7 +55,14 @@ namespace WebApi.DAL.Repositories
 
         public TUser GetUserByEmail(string email)
         {
-            throw new NotImplementedException();
+            var response = HttpClient.GetAsync(EndPoint + nameof(GetUserByEmail) + "/" + email + "/").Result;
+            if (response.IsSuccessStatusCode)
+            {
+                var res = response.Content.ReadAsAsync<TUser>().Result;
+                return res;
+            }
+            _logger.Debug("Web API statuscode: " + response.StatusCode.ToString() + " Uri:" + response.RequestMessage.RequestUri);
+            return null;
         }
 
         public bool IsInRole(TKey userId, string roleName)

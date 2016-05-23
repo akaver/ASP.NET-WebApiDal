@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{3C79898C-DC51-49DA-B928-C33D2A383592}</ProjectGuid>
+    <ProjectGuid>{E80E1D6A-8585-4222-9964-715D978FE9EC}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Interfaces</RootNamespace>
@@ -44,25 +44,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repository\IArticleRepository.cs" />
-    <Compile Include="Repository\IContactRepository.cs" />
-    <Compile Include="Repository\IContactTypeRepository.cs" />
-    <Compile Include="Repository\IMultiLangStringRepository.cs" />
-    <Compile Include="Repository\IRepository.cs" />
-    <Compile Include="Repository\IPersonRepository.cs" />
-    <Compile Include="Repository\IRoleRepository.cs" />
-    <Compile Include="Repository\ITranslationRepository.cs" />
-    <Compile Include="Repository\IUserClaimRepository.cs" />
-    <Compile Include="Repository\IUserLoginRepository.cs" />
-    <Compile Include="Repository\IUserRepository.cs" />
-    <Compile Include="Repository\IUserRoleRepository.cs" />
+    <Compile Include="Repositories\IArticleRepository.cs" />
+    <Compile Include="Repositories\IContactRepository.cs" />
+    <Compile Include="Repositories\IBaseRepository.cs" />
+    <Compile Include="Repositories\IContactTypeRepository.cs" />
+    <Compile Include="Repositories\IMultiLangStringRepository.cs" />
+    <Compile Include="Repositories\IPersonRepository.cs" />
+    <Compile Include="Repositories\IRoleRepository.cs" />
+    <Compile Include="Repositories\ITranslationRepository.cs" />
+    <Compile Include="Repositories\IUserClaimRepository.cs" />
+    <Compile Include="Repositories\IUserLoginRepository.cs" />
+    <Compile Include="IUserNameResolver.cs" />
+    <Compile Include="Repositories\IUserRepository.cs" />
+    <Compile Include="Repositories\IUserRoleRepository.cs" />
     <Compile Include="UOW\IUOW.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Domain\Domain.csproj">
-      <Project>{54e9dc6c-c740-4878-b57e-546c09b4e8ca}</Project>
+      <Project>{54E9DC6C-C740-4878-B57E-546C09B4E8CA}</Project>
       <Name>Domain</Name>
     </ProjectReference>
   </ItemGroup>

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DAL.Interfaces;
-using Interfaces.Repository;
+using Interfaces.Repositories;
 using NLog;
 
 namespace DAL.Helpers
@@ -28,9 +28,9 @@ namespace DAL.Helpers
             Repositories = new Dictionary<Type, object>();
         }
 
-        public IRepository<T> GetRepositoryForEntityType<T>() where T : class
+        public IBaseRepository<T> GetRepositoryForEntityType<T>() where T : class
         {
-            return GetRepository<IRepository<T>>(_repositoryFactories.GetRepositoryFactoryForEntityType<T>());
+            return GetRepository<IBaseRepository<T>>(_repositoryFactories.GetRepositoryFactoryForEntityType<T>());
         }
 
         public virtual T GetRepository<T>(Func<IDbContext, object> factory = null) where T : class

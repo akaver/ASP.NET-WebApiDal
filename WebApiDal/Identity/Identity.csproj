@@ -64,7 +64,7 @@
       <Name>Domain</Name>
     </ProjectReference>
     <ProjectReference Include="..\Interfaces\Interfaces.csproj">
-      <Project>{3C79898C-DC51-49DA-B928-C33D2A383592}</Project>
+      <Project>{E80E1D6A-8585-4222-9964-715D978FE9EC}</Project>
       <Name>Interfaces</Name>
     </ProjectReference>
   </ItemGroup>

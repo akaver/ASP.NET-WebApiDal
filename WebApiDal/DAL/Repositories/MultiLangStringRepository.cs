@@ -5,11 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using DAL.Interfaces;
 using Domain;
-using Interfaces.Repository;
+using Interfaces.Repositories;
 
 namespace DAL.Repositories
 {
-    public class MultiLangStringRepository : Repository<MultiLangString>, IMultiLangStringRepository
+    public class MultiLangStringRepository : EFRepository<MultiLangString>, IMultiLangStringRepository
     {
         public MultiLangStringRepository(IDbContext dbContext) : base(dbContext)
         {

@@ -5,7 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using DAL.Interfaces;
 using Domain.Identity;
-using Interfaces.Repository;
+using Interfaces.Repositories;
+using Microsoft.AspNet.Identity;
 
 namespace DAL.Repositories
 {
@@ -24,7 +25,7 @@ namespace DAL.Repositories
         }
     }
 
-    public class RoleRepository<TKey, TRole, TUser, TUserClaim, TUserLogin, TUserRole> : Repository<TRole>,
+    public class RoleRepository<TKey, TRole, TUser, TUserClaim, TUserLogin, TUserRole> : EFRepository<TRole>,
         IRoleRepository<TKey, TRole>
         where TKey : IEquatable<TKey>
         where TRole : Role<TKey, TRole, TUser, TUserClaim, TUserLogin, TUserRole>

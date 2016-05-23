@@ -22,7 +22,7 @@ namespace WebApi.Server.Providers
         {
             if (publicClientId == null)
             {
-                throw new ArgumentNullException(nameof(publicClientId));
+                throw new ArgumentNullException("publicClientId");
             }
 
             _publicClientId = publicClientId;
