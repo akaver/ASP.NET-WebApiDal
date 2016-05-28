@@ -22,5 +22,11 @@ namespace Interfaces.Repositories
         //void UpdateOrInsert(T entity);
         void Delete(T entity);
         void Delete(params object[] id);
+
+        // TODO: do not use find in EF, use count. this is somewhat complicated!!!
+        // return db.Articles.Count(e => e.ArticleId == id) > 0;
+        //bool Exists(params object[] id);
+
+
     }
 }

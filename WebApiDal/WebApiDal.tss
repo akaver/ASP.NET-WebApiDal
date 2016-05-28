@@ -2,7 +2,7 @@
 <ArrayOfArrayOfArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ArrayOfArrayOfString>
     <ArrayOfString>
-      <string>C:\!dev\git\ASP.NET-WebApiDal\WebApiDal\Web\Controllers\AccountController.cs</string>
+      <string>C:\!dev\git\ASP.NET-WebApiDal\WebApiDal\WebApi.Server\Global.asax.cs</string>
     </ArrayOfString>
   </ArrayOfArrayOfString>
 </ArrayOfArrayOfArrayOfString>
