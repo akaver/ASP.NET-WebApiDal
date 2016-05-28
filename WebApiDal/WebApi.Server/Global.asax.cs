@@ -11,6 +11,17 @@ namespace WebApi.Server
 {
     public class WebApiApplication : System.Web.HttpApplication
     {
+
+        private readonly NLog.Logger _logger = NLog.LogManager.GetCurrentClassLogger();
+        private readonly string _instanceId = Guid.NewGuid().ToString();
+
+        protected void Application_BeginRequest()
+        {
+            _logger.Info(
+                   " URL(" + HttpContext.Current.Request.RequestType + "): " +
+                   HttpContext.Current.Request.RawUrl);
+        }
+
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
@@ -19,5 +30,9 @@ namespace WebApi.Server
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
+
+
+
+
     }
 }
