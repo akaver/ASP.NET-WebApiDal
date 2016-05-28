@@ -68,7 +68,7 @@ namespace Web.Controllers
                         shouldLockout: false);
             // check for UOW type, if webapi - get token and store it as claim
             var webApiUOW = _uow as IWebApiUOW;
-            if (webApiUOW != null)
+            if (result == SignInStatus.Success && webApiUOW != null)
             {
                 var token = webApiUOW.GetWebApiToken(model.Email, model.Password);
                 var user = _userManager.Find(model.Email, model.Password);
@@ -97,6 +97,7 @@ namespace Web.Controllers
                     return View(model);
             }
         }
+
 
         //
         // GET: /Account/VerifyCode

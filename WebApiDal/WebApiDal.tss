@@ -2,58 +2,124 @@
 <ArrayOfArrayOfArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ArrayOfArrayOfString>
     <ArrayOfString>
-      <string>C:\!dev\git\ASP.NET-BaseApps\ContactApp\WebApi.DAL\WebApiUOW.cs</string>
+      <string>C:\!dev\git\ASP.NET-WebApiDal\WebApiDal\WebApi.DAL\WebApiUOW.cs</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>C:\!dev\git\ASP.NET-BaseApps\ContactApp\Interfaces\UOW\IUOW.cs</string>
+      <string>C:\!dev\git\ASP.NET-WebApiDal\WebApiDal\WebApi.DAL\Repositories\ContactTypeRepository.cs</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>C:\!dev\git\ASP.NET-BaseApps\ContactApp\Interfaces\Repositories\IContactTypeRepository.cs</string>
+      <string>C:\!dev\git\ASP.NET-WebApiDal\WebApiDal\WebApi.DAL\Repositories\MultiLangStringRepository.cs</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>C:\!dev\git\ASP.NET-BaseApps\ContactApp\Interfaces\Repositories\IArticleRepository.cs</string>
+      <string>C:\!dev\git\ASP.NET-WebApiDal\WebApiDal\WebApi.DAL\Repositories\TranslationRepository.cs</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>C:\!dev\git\ASP.NET-BaseApps\ContactApp\Interfaces\Repositories\IMultiLangStringRepository.cs</string>
+      <string>C:\!dev\git\ASP.NET-WebApiDal\WebApiDal\WebApi.DAL\Repositories\PersonRepository.cs</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>C:\!dev\git\ASP.NET-BaseApps\ContactApp\Interfaces\Repositories\ITranslationRepository.cs</string>
+      <string>C:\!dev\git\ASP.NET-WebApiDal\WebApiDal\WebApi.DAL\Repositories\ContactRepository.cs</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>C:\!dev\git\ASP.NET-BaseApps\ContactApp\DAL\Repositories\TranslationRepsoitory.cs</string>
+      <string>C:\!dev\git\ASP.NET-WebApiDal\WebApiDal\WebApi.DAL\Repositories\UserLoginIntRepository.cs</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>C:\!dev\git\ASP.NET-BaseApps\ContactApp\DAL\Repositories\MultiLangStringRepository.cs</string>
+      <string>C:\!dev\git\ASP.NET-WebApiDal\WebApiDal\WebApi.DAL\Repositories\WebApiRepository.cs</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>C:\!dev\git\ASP.NET-BaseApps\ContactApp\DAL\Repositories\ContactTypeRepository.cs</string>
+      <string>C:\!dev\git\ASP.NET-WebApiDal\WebApiDal\Web\Web.config</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>C:\!dev\git\ASP.NET-BaseApps\ContactApp\DAL\Helpers\EFRepositoryFactories.cs</string>
+      <string>C:\!dev\git\ASP.NET-WebApiDal\WebApiDal\WebApi.DAL\Repositories\ArticleRepository.cs</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>C:\!dev\git\ASP.NET-BaseApps\ContactApp\DAL\UOW.cs</string>
+      <string>C:\!dev\git\ASP.NET-WebApiDal\WebApiDal\DAL\Repositories\RoleRepository.cs</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>C:\!dev\git\ASP.NET-BaseApps\ContactApp\WebApi.DAL\Repositories\WebApiRepository.cs</string>
+      <string>C:\!dev\git\ASP.NET-WebApiDal\WebApiDal\WebApi.DAL\Repositories\RoleRepository.cs</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>NuGet - Solution</string>
+      <string>C:\!dev\git\ASP.NET-WebApiDal\WebApiDal\WebApi.DAL\Repositories\UserClaimRepository.cs</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>C:\!dev\git\ASP.NET-BaseApps\ContactApp\DAL\Repositories\ArticleRepository.cs</string>
+      <string>C:\!dev\git\ASP.NET-WebApiDal\WebApiDal\DAL\Repositories\UserClaimRepository.cs</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>C:\!dev\git\ASP.NET-BaseApps\ContactApp\DAL\Repositories\EFRepository.cs</string>
+      <string>C:\!dev\git\ASP.NET-WebApiDal\WebApiDal\DAL\Repositories\UserLoginRepository.cs</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>C:\!dev\git\ASP.NET-BaseApps\ContactApp\WebApi.DAL\Repositories\ArticleRepository.cs</string>
+      <string>C:\!dev\git\ASP.NET-WebApiDal\WebApiDal\WebApi.DAL\Repositories\UserRepository.cs</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>C:\!dev\git\ASP.NET-BaseApps\ContactApp\WebApi.Server\Helpers\UserNameFactory.cs</string>
+      <string>C:\!dev\git\ASP.NET-WebApiDal\WebApiDal\WebApi.DAL\Repositories\UserRoleRepository.cs</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>C:\!dev\git\ASP.NET-BaseApps\ContactApp\Web\Web.config</string>
+      <string>C:\!dev\git\ASP.NET-WebApiDal\WebApiDal\WebApi.Server\Controllers\Api\ArticlesController.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>C:\!dev\git\ASP.NET-WebApiDal\WebApiDal\WebApi.Server\Controllers\Api\RolesIntController.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>C:\!dev\git\ASP.NET-WebApiDal\WebApiDal\WebApi.Server\Controllers\Api\UsersIntController.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>C:\!dev\git\ASP.NET-WebApiDal\WebApiDal\Web\logs\2016-05-20.log</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>C:\!dev\git\ASP.NET-WebApiDal\WebApiDal\Web\Controllers\PersonsController.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>C:\!dev\git\ASP.NET-WebApiDal\WebApiDal\ConsoleTestApp\Program.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>C:\!dev\git\ASP.NET-WebApiDal\WebApiDal\DAL\Repositories\EFRepository.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>C:\!dev\git\ASP.NET-WebApiDal\WebApiDal\Domain\Contact.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>C:\!dev\git\ASP.NET-WebApiDal\WebApiDal\WebApi.DAL\Helpers\EntityKeyInfo.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>C:\!dev\git\ASP.NET-WebApiDal\WebApiDal\DAL\DatabaseInitializer.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>C:\!dev\git\ASP.NET-WebApiDal\WebApiDal\Web\Controllers\AccountController.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>C:\!dev\git\ASP.NET-WebApiDal\WebApiDal\WebApi.DAL\Interfaces\IWebApiUOW.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>C:\!dev\git\ASP.NET-WebApiDal\WebApiDal\DAL\DataBaseContext.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>C:\!dev\git\ASP.NET-WebApiDal\WebApiDal\WebApi.Server\Controllers\Api\UserClaimsIntController.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>C:\!dev\git\ASP.NET-WebApiDal\WebApiDal\Identity\UserStore.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>C:\!dev\git\ASP.NET-WebApiDal\WebApiDal\Domain\Identity\User.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>C:\!dev\git\ASP.NET-WebApiDal\WebApiDal\Interfaces\Repositories\IUserClaimRepository.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>C:\!dev\git\ASP.NET-WebApiDal\WebApiDal\Web\Views\Shared\_Layout.cshtml</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>C:\!dev\git\ASP.NET-WebApiDal\WebApiDal\Web\App_Start\BundleConfig.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>C:\!dev\git\ASP.NET-WebApiDal\WebApiDal\Web\logs\2016-05-23.log</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>C:\!dev\git\ASP.NET-WebApiDal\WebApiDal\Web\Helpers\UserNameFactory.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>C:\!dev\git\ASP.NET-WebApiDal\WebApiDal\Web\App_Start\NinjectWebCommon.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>C:\!dev\git\ASP.NET-WebApiDal\WebApiDal\DAL\UserName.cs</string>
     </ArrayOfString>
   </ArrayOfArrayOfString>
 </ArrayOfArrayOfArrayOfString>
